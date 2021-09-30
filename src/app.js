@@ -11,6 +11,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(errorHandler);
 
-app.use("/users", require("./routes"));
+app.use("/", require("./routes"));
 
 module.exports = app;

@@ -15,23 +15,18 @@ const getCreateUser = (user) => {
     ...user,
   };
   db.push(newUser);
-  fs.writeFileSync(
-    path.join(__dirname, "./user.json"),
-    JSON.stringify(newUser),
-    {
-      encoding: "utf-8",
-    }
-  );
+  fs.writeFileSync(path.join(__dirname, "./user.json"), JSON.stringify(db), {
+    encoding: "utf-8",
+  });
   return true;
 };
 
 const getUpdateUser = (id, newUser) => {
   const userId = getUsers(id).findIndex((item) => item.id == id);
-  const user = newUser;
   const db = getUsers();
   db[userId] = {
     id,
-    ...user,
+    ...newUser,
   };
   fs.writeFileSync(path.join(__dirname, "./user.json"), JSON.stringify(db), {
     encoding: "utf-8",
