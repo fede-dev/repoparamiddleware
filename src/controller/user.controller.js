@@ -1,4 +1,4 @@
-const userModel = ""; // requerir el index modelo
+const userModel = require("../model");
 
 const userController = {
   getAllUsers: async (req, res, next) => {
@@ -8,6 +8,7 @@ const userController = {
       return true;
     } catch (error) {
       res.status(400).json({ msg: "users no encontrados" });
+      //next(error);
     }
   },
   createUser: async (req, res, next) => {
