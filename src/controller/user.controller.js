@@ -1,4 +1,4 @@
-const userModel = ""; // requerir el index modelo
+const userModel = require('../model'); // requerir el index modelo
 
 const userController = {
   getAllUsers: async (req, res, next) => {
